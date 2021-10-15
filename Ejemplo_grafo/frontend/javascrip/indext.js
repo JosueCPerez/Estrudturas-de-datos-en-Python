@@ -7,11 +7,52 @@ function login(){
 
 function agregar(){
     var dato = document.getElementById("valor").value
+    var ad = document.getElementById("ad").value
+
+    var data = JSON.stringify({
+        "dato": dato,
+        "ad":ad
+    });
+
+    if(dato != ""){
+        if(ad !=""){
+            fetch('http://localhost:3000/agregar', {
+                method: 'post',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: data
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                alert(data.response)
+            });
+        }else{
+            fetch('http://localhost:3000/insertar', {
+                method: 'post',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: data
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                alert(data.response)
+            });
+        }
+    }
+    
+
+    
+}
+
+function agregar_ad(){
+    var dato = document.getElementById("valor").value
     var data = JSON.stringify({
         "dato": dato
     });
-
-    alert(data)
 
     fetch('http://localhost:3000/insertar', {
         method: 'post',
@@ -19,6 +60,21 @@ function agregar(){
           'Content-Type': 'application/json'
         },
         body: data
+      })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+          alert(data.response)
+        });
+}
+
+function graficar(){
+    var dato = document.getElementById("valor").value
+    fetch('http://localhost:3000/graficar', {
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
         .then(response => response.json())
         .then(data => {

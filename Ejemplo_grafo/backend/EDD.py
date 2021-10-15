@@ -1,3 +1,4 @@
+import os
 #ejemplo implementacion con lista de adyacencia de un grafo dirigido
 class nodo:
     def __init__(self, dato):
@@ -96,6 +97,7 @@ class grafo:
         Archivo = open("ejemplo.dot","w+")
         Archivo.write(cadena)
         Archivo.close()
+        os.system("fdp -Tpng -o graph-g.png ejemplo.dot")
 
 '''prueba = grafo()
 prueba.insertar(5)
