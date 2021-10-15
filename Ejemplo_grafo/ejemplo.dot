@@ -1,0 +1,13 @@
+digraph arbol {
+ rankdir="LR"n5[label= "5"];
+n6[label= "6"];
+n7[label= "7"];
+n8[label= "8"];
+n9[label= "9"];
+n5 -> n6
+n5 -> n7
+n6 -> n7
+n7 -> n8
+n7 -> n9
+n9 -> n5
+}
